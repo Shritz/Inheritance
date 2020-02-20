@@ -1,3 +1,14 @@
+/* Matt Nguyen
+   Chinemerem Anunkor
+     February 20, 2020
+     Purpose: The purpose of this java class is to serve as the superclass for all the
+     different items that we are comparing and using
+     Inputs: DessertItems that we would be comparing
+     Output: the DessertItems which are greater in calories
+*/
+
+
+
 public abstract class DessertItem implements Comparable<DessertItem>{
 
     protected String name;
@@ -40,6 +51,12 @@ public abstract class DessertItem implements Comparable<DessertItem>{
      */
     public abstract double getCost();
 
+    /**
+     *
+     * @param item1
+     * @param item2
+     * @return -1, 1, or null depending on what item has more calories
+     */
     public static DessertItem max(DessertItem item1, DessertItem item2){
         int compare = item1.compareTo(item2);
         if(compare == 1){
@@ -51,6 +68,11 @@ public abstract class DessertItem implements Comparable<DessertItem>{
         return null;
     }
 
+    /**
+     *
+     * @param item
+     * @return 0, 1, -1, depending on which item has more calories
+     */
     public int compareTo(DessertItem item){
         if (calories == item.calories)
             return 0;

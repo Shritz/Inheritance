@@ -1,3 +1,12 @@
+/* Matt Nguyen
+   Chinemerem Anunkor
+     February 20, 2020
+     Purpose: This purpose of this java class is to serve as the tester
+     Inputs: DessertItems
+     Output: DessertItems and formatting them a certain way
+*/
+
+import java.util.Collections;
 class Main {
     public static void main(String[] args) {
         Checkout checkout = new Checkout();
@@ -11,7 +20,7 @@ class Main {
         candy1.setCalories(500);
         checkout.enterItem(candy1);
         System.out.println(candy1.toString());
-        Candy candy2 = new Candy("Lolipop", 2.5, 825);
+        Candy candy2 = new Candy("Lollipop", 2.5, 825);
         candy2.setCalories(640);
         checkout.enterItem(candy2);
         System.out.println(candy2.toString());
@@ -120,10 +129,75 @@ class Main {
         }
         System.out.println("------------------------------------------------------------------------------------------------------");
         System.out.println("Max Test with Different DessertItem Types:");
-        DessertItem t = DessertItem.max(candy1, cookie2);
-        if ( t == candy1) {
+        DessertItem t = DessertItem.max(candy2, cookie2);
+        if ( t == candy2) {
             System.out.println(t.getName() + "(Candy) with " + t.getCalories() + " calories is bigger than "
             + cookie2.getName() + "(Cookie) with " + cookie2.getCalories() + " calories");
+        }
+        else if ( t == cookie2) {
+            System.out.println(t.getName() + "(Cookie) with " + t.getCalories() + " calories is bigger than "
+            + candy2.getName() + "(Candy) with " + candy2.getCalories() + " calories");
+        }
+        else if ( t == null) {
+            System.out.println(candy2.getName() + "(Candy) with " + candy2.getCalories() + " equals to "
+            + cookie2.getName() + "(Cookie) with " + cookie2.getCalories() + " calories");
+        }
+
+        DessertItem y = DessertItem.max(sundae2, icecream2);
+        if ( y == sundae2) {
+            System.out.println(y.getName() + "(Sundae) with " + y.getCalories() + " calories is bigger than " +
+                    icecream2.getName() + "(IceCream) with " + icecream2.getCalories() + " calories");
+        }
+        else if ( y == icecream2) {
+            System.out.println(y.getName() + "(IceCream) with " + y.getCalories() + " calories is bigger than " +
+                    sundae2.getName() + "(Sundae) with " + sundae2.getCalories() + " calories");
+        }
+
+        else if (y == null) {
+            System.out.println(sundae2.getName() + "(Sundae) with " + sundae2.getCalories() + " equals to "
+            + icecream2.getName() + "(IceCream) with " + icecream2.getCalories() + " calories");
+        }
+
+        DessertItem u = DessertItem.max(candy1, icecream1);
+        if ( u == candy1) {
+            System.out.print(u.getName() + "(Candy) with " + u.getCalories() + " calories is bigger than "
+            + icecream1.getName() + "(IceCream) with " + icecream1.getCalories() + " calories");
+        }
+        else if ( u == icecream1) {
+            System.out.println(u.getName() + "(IceCream) with " + u.getCalories() + " calories is bigger than " +
+                    candy1.getName() + "(Candy) with " + candy1.getCalories() + " calories");
+        }
+        else if ( u == null) {
+            System.out.println(candy1.getName() + "(Candy) with " + candy1.getCalories() + " equals to "
+            + icecream1.getName() + "(IceCream) with " + icecream1.getCalories() + " calories");
+        }
+
+        DessertItem i = DessertItem.max(sundae1, cookie1);
+        if ( i == sundae1) {
+            System.out.println(i.getName() + "(Sundae) with " + i.getCalories() + " calories is bigger than "
+                    + cookie1.getName() + "(Cookie) with " + cookie1.getCalories() + " calories");
+        }
+
+        if ( i == cookie1) {
+            System.out.println(i.getName() + "(Cookie) with " + i.getCalories() + " calories is bigger than " +
+                    sundae1.getName() + "(Sundae) with " + sundae1.getCalories() + " calories");
+        }
+
+        else if (i == null) {
+            System.out.println(sundae1.getName() + "(Sundae) with" + sundae1.getCalories() + " equals to "
+            + cookie1.getName() + "(Cookie) with " + cookie1.getCalories() + " calories");
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("The unsorted DessertList is:");
+        for (DessertItem x: checkout.dessertItems)
+            System.out.println(""+x.getName() + "(" + x.getClass().getName() + ")"  + " has " + x.getCalories() + " calories");
+
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        System.out.println("The sorted DessertList is:");
+        Collections.sort(checkout.dessertItems);
+        for (DessertItem a : checkout.dessertItems)
+        {
+            System.out.println(""+a.getName()  +"(" + a.getClass().getName() + ")" + " has " + a.getCalories() + " calories");
         }
 
     }
@@ -146,30 +220,3 @@ class Main {
 
 
 
-
-
-
-
-    /*
-        DessertItem d = DessertItem.max(candy1, candy2);
-        if(d != null)
-            System.out.println(d.getName() + " is greater.");
-        else
-            System.out.println("The items are equal.");
-        Cookie cookie1 = new Cookie("ChocChip", 17, 499);
-        cookie1.setCalories(250);
-        System.out.println("Comparing " + candy1.getName() + " and " + cookie1.getName());
-        d = DessertItem.max(candy1, cookie1);
-        if(d != null)
-            System.out.println(d.getName() + " is greater.");
-        else
-            System.out.println("The items are equal.");
-        IceCream icecream1 = new IceCream("Vanilla", 10.05);
-        icecream1.setCalories(500);
-        System.out.println("Comparing " + candy1.getName() + " and " + icecream1.getName());
-        d = DessertItem.max(candy1, icecream1);
-        if(d != null)
-            System.out.println(d.getName() + " is greater.");
-        else
-            System.out.println("The items are equal.");
-    */

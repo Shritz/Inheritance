@@ -1,3 +1,10 @@
+/* Matt Nguyen
+   Chinemerem Anunkor
+     February 20, 2020
+     Purpose: This purpose of this java class is to serve as the Cookie class
+     Inputs: Different cookies
+     Output: Returns different cookies price and name, or different objects
+*/
 public class Cookie extends DessertItem {
 
     private int numberOfCookies;
@@ -14,17 +21,11 @@ public class Cookie extends DessertItem {
         return cost;
     }
 
-    public void setNumberOfCookies(int numberOfCookies) {
-        this.numberOfCookies = numberOfCookies;
-    }
 
     public int getNumberOfCookies() {
         return numberOfCookies;
     }
 
-    public void setPricePerDozen(int pricePerDozen) {
-        this.pricePerDozen = pricePerDozen;
-    }
 
     public int getPricePerDozen() {
         return pricePerDozen;

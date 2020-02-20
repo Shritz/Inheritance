@@ -1,3 +1,12 @@
+/* Matt Nguyen
+   Chinemerem Anunkor
+     February 20, 2020
+     Purpose: This purpose of this java class is to serve as the checkout class,
+     sets the tax rate, and bring out the receipts
+     Inputs: DessertItems
+     Output: the DessertItems in the form of a receipt with their cost and total amount.
+*/
+
 import java.util.ArrayList;
 
 public class Checkout {
@@ -80,7 +89,7 @@ public class Checkout {
     public String toString() {
         String output = "";
 
-        output += "\n\t\t\tA&SDessert Shoppe\n\t\t\t--------------\n";
+        output += "\n\t\t\tA&S Dessert Shop\n\t\t\t--------------\n";
 
         for (int i = 0; i < this.dessertItems.size(); i++) {
             if(this.dessertItems.get(i) instanceof Candy){
@@ -93,7 +102,7 @@ public class Checkout {
                 String line = String.format("%-30s %-15.2f\n", name, (temp.getCost() / 100.0));
                 output += line;
             }
-            else if(this.dessertItems.get(i) instanceof Cookie){
+            else if(this.dessertItems.get(i) instanceof Cookie){ // showing polymorphism using instanceof for each dessert item
                 Cookie temp = (Cookie)this.dessertItems.get(i);
                 String name = temp.getName();
                 if(!temp.getName().equals("")){
@@ -103,7 +112,7 @@ public class Checkout {
                 String line = String.format("%-30s %-15.2f\n", name, (temp.getCost() / 100.0));
                 output += line;
             }
-            else if(this.dessertItems.get(i) instanceof IceCream){
+            else if(this.dessertItems.get(i) instanceof IceCream){ // showing polymorphism using instanceof for each dessert item
                 IceCream temp = (IceCream)this.dessertItems.get(i);
                 String name = temp.getName();
                 if(!temp.getName().equals("")){
@@ -112,7 +121,7 @@ public class Checkout {
                 String line = String.format("%-30s %-15.2f\n", name, temp.getCost()/100);
                 output += line;
             }
-            else if(this.dessertItems.get(i) instanceof Sundae){
+            else if(this.dessertItems.get(i) instanceof Sundae){ // showing polymorphism using instanceof for each dessert item
                 Sundae temp = (Sundae)this.dessertItems.get(i);
                 String name = temp.getName();
                 String topping = temp.getToppingName();
@@ -127,7 +136,7 @@ public class Checkout {
                 output += line;
             }
         }
-
+        // formating the receipt
         double taxDollars = this.totalTax() / 100.0;
         String line = String.format("\n%-30s %-15.2f\n", "Tax:", taxDollars);
         output += line;

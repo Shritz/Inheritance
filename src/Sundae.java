@@ -1,3 +1,11 @@
+/* Matt Nguyen
+   Chinemerem Anunkor
+     February 20, 2020
+     Purpose: This purpose of this java class is to serve as Sundae class
+     Inputs: IceCream and Sundae
+     Output: Different items called for the Sundae
+*/
+
 public class Sundae extends IceCream {
 
     private String toppingName;
@@ -16,6 +24,7 @@ public class Sundae extends IceCream {
     public String getToppingName() {
         return toppingName;
     }
+
 
     public String toString(){
         String name = this.getName();
